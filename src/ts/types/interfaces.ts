@@ -1,11 +1,12 @@
 export interface Component {
   element: HTMLElement;
+
+  render?: () => void;
 }
 
 export interface Pokemon {
   url: string;
-  id: number;
   name: string;
 }
 
-export type PokemonList = Pokemon[];
+export type Pokemons = Pokemon[];

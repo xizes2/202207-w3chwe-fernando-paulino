@@ -12,5 +12,9 @@ module.exports = {
     project: "./tsconfig.json",
   },
   plugins: ["@typescript-eslint"],
-  rules: { "no-new": "off" },
+  rules: {
+    "no-new": "off",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/lines-between-class-members": ["off"],
+  },
 };

@@ -14,4 +14,11 @@ export interface PokemonsContent {
   }[];
 }
 
+export interface PokemonAttributes {
+  name: string;
+  img: string;
+}
+
 export type Pokemons = PokemonsContent[];
+
+export type PurePokemons = PokemonAttributes[];

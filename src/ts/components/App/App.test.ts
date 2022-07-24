@@ -1,4 +1,4 @@
-import App from "./App";
+import App from "./App.js";
 
 describe("Given a App component", () => {
   describe("When instantiated with a 'div' tag", () => {

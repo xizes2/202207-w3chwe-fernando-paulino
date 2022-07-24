@@ -4,9 +4,14 @@ export interface Component {
   render?: () => void;
 }
 
-export interface Pokemon {
-  url: string;
-  name: string;
+export interface PokemonsContent {
+  count: number;
+  next: string;
+  previous: null | string;
+  results: {
+    url: string;
+    name: string;
+  }[];
 }
 
-export type Pokemons = Pokemon[];
+export type Pokemons = PokemonsContent[];

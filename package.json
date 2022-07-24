@@ -7,7 +7,7 @@
     "test": "npx jest src --watchAll",
     "prepare": "husky install",
     "local-ts-compiler": "npx tsc -w",
-    "prod-ts-compiler": "npx tsc"
+    "prod-ts-compiler": "tsc"
   },
   "parserOptions": {
     "project": "./tsconfig.json",

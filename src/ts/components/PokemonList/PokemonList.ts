@@ -1,26 +1,25 @@
 import Component from "../Component/Component.js";
-import { Component as IComponent, Pokemons } from "../../types/interfaces.js";
-
-const urlPrePokemonList =
-  "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20";
+import {
+  Component as IComponent,
+  PokemonsContent,
+} from "../../types/interfaces.js";
+import PokemonCard from "../PokemonCard/PokemonCard.js";
 
 class PokemonList extends Component implements IComponent {
-  constructor(parent: HTMLElement, private pokemonListUrls: Pokemons) {
+  constructor(private parent: HTMLElement, private url: string) {
     super(parent, "pokemon-list", "ul");
 
-    (async () => {
-      const response = await fetch(urlPrePokemonList);
-      const pokemonList = await response.json();
-      this.pokemonListUrls = await pokemonList.results;
-
-      this.render();
-    })();
+    this.render();
   }
 
-  render() {
-    this.element.innerHTML = "";
-    this.pokemonListUrls.forEach(() => {});
-  }
+  render = async () => {
+    const response = await fetch(this.url);
+    const data: PokemonsContent = await response.json();
+
+    data.results.forEach((result) => {
+      new PokemonCard(this.parent, result.url);
+    });
+  };
 }
 
 export default PokemonList;
